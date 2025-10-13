@@ -1,5 +1,5 @@
 		<!-- ======================= Newsletter Start ============================ -->
-		<section class="space bg-cover" style="background:#28b661 url(assets/img/landing-bg.png) no-repeat;">
+		<section class="space bg-cover" style="background:#862633 url(assets/img/landing-bg.png) no-repeat;">
 		    <div class="container py-5">
 
 		        <div class="row justify-content-center">
@@ -48,13 +48,14 @@
 
 		                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
 		                    <div class="footer_widget">
-		                        <img src="assets/img/logo-light.png" class="img-footer small mb-2" alt="" />
+		                        <!-- <img src="assets/img/logo-light.png" class="img-footer small mb-2" alt="" /> -->
+		                        <strong>MUNext</strong>
 
 		                        <div class="address mt-2">
-		                            3298 Grant Street Longview, New Texox<br>United Kingdom 75601
+		                            MUN NL<br>Canada
 		                        </div>
 		                        <div class="address mt-3">
-		                            1-202-555-0106<br>support@workplex.com
+		                            +1-123-456 7890<br>support@munext.com
 		                        </div>
 		                        <div class="address mt-2">
 		                            <ul class="list-inline">
@@ -100,18 +101,18 @@
 
 		                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
 		                    <div class="footer_widget">
-		                        <h4 class="widget_title">About Company</h4>
+		                        <h4 class="widget_title">Links</h4>
 		                        <ul class="footer-menu">
-		                            <li><a href="#">Who We'r?</a></li>
-		                            <li><a href="#">Our Mission</a></li>
-		                            <li><a href="#">Our team</a></li>
-		                            <li><a href="#">Packages</a></li>
+		                            <!-- <li><a href="#">Who We'r?</a></li>
+		                            <li><a href="#">Our Mission</a></li>-->
+		                            <li><a href="#">Sign Up</a></li>
+		                            <li><a href="#">Sign In</a></li>
 		                            <li><a href="#">Dashboard</a></li>
 		                        </ul>
 		                    </div>
 		                </div>
 
-		                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+		                <!-- <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
 		                    <div class="footer_widget">
 		                        <h4 class="widget_title">Helpful Topics</h4>
 		                        <ul class="footer-menu">
@@ -122,7 +123,7 @@
 		                            <li><a href="#">Privacy</a></li>
 		                        </ul>
 		                    </div>
-		                </div>
+		                </div> -->
 
 		            </div>
 		        </div>
@@ -132,7 +133,7 @@
 		        <div class="container">
 		            <div class="row align-items-center">
 		                <div class="col-lg-12 col-md-12 text-center">
-		                    <p class="mb-0">© 2022 Workplex</p>
+		                    <p class="mb-0">© 2025 MUNext</p>
 		                </div>
 		            </div>
 		        </div>

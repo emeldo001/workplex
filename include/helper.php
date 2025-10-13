@@ -72,11 +72,27 @@ if (isset($_POST['login_btn'])) {
     $username = validate_input_text($_POST['username']);
     if (empty($username)) {
         $Lerror = "You forgot to enter your Username";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($Lerror) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
     $password = validate_input_text($_POST['password']);
     if (empty($password)) {
         $Lerror = "You forgot to enter your password";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($Lerror) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
 
@@ -99,34 +115,91 @@ if (isset($_POST['login_btn'])) {
 
 
 
-                if ($row['ROLE'] == "Administrator") {
+                
                     $_SESSION['userID'] = $row['USERID'];
                     $_SESSION['loggedin_time'] = time();
-                    header("location: ./admin/");
-                    exit();
-                } else {
 
-                    $_SESSION['userID'] = $row['USERID'];
-                    $_SESSION['loggedin_time'] = time();
+                     $message = "Login Successful!";
+                // echo "<script>alert('Incorrect Username or Password!')</script>";
+                 echo "<script>
+                  window.onload = function() {
+                    const toast = document.getElementById('toast');
+                    toast.className = 'show success';
+                    toast.textContent = " . json_encode($message) . ";
+                    setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+                  };
+                </script>";
+                    
+                if ($row['ROLE'] == "Administrator") {
+                              // header("location: ./admin/");
+                              echo "<script>
+                          setTimeout(function() {
+                            window.location.href = './admin/';
+                          }, 4000);
+                        </script>";
+             
+                        exit();
+                } else {
+                  
                     if (!empty($_POST['url'])) {
                         $url = $_POST['url'];
-                        header("location: ./$url");
+                        // header("location: ./$url");
+                        echo "<script>
+                        setTimeout(function() {
+                          window.location.href = './$url';
+                        }, 3000);
+                      </script>";
                     } else {
-                        header("location: ./dashboard/");
+                                // header("location: ./dashboard/");
+                                echo "<script>
+                        setTimeout(function() {
+                          window.location.href = './dashboard/';
+                        }, 3000);
+                      </script>";
                     }
 
                     exit();
                 }
             } else {
                 $Lerror = "<div style='color:red'>Incorrect Username or Password!</div>";
+                $error = "Incorrect Username or Password!";
                 // echo "<script>alert('Incorrect Username or Password!')</script>";
+                 echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
+
             }
         } else {
             $Lerror = "<div style='color:red'>Username does not exist!</div>";
+            $error = "Username does not exist!";
             // echo "<script>alert('Username does not exist!')</script>";
+             echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
+
         }
     } else {
         $Lerror = "<div style='color:red'>Please Fill out Username and password to login!</div>";
+        $error = "Please Fill out Username and password to login!";
+        
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 }
 /////////////////// login Ends//////////////////////////////
@@ -142,28 +215,63 @@ if (isset($_POST['login_btn'])) {
 if (isset($_POST['register_btn'])) {
     # code...
 
+    $role = validate_input_text($_POST['role']);
+    
+
     $firstName = validate_input_text($_POST['Fname']);
     if (empty($firstName)) {
         $error = "You forgot to enter your first Name";
         $ferror = "You forgot to enter your first Name";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
     $lastName = validate_input_text($_POST['Lname']);
     if (empty($lastName)) {
         $error = "You forgot to enter your last Name";
         $lerror = "You forgot to enter your last Name";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
     $username = validate_input_text($_POST['username']);
     if (empty($username)) {
         $error = "You forgot to enter your Username";
         $lerror = "You forgot to enter your Username";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
     $email = validate_input_email($_POST['email']);
     if (empty($email)) {
         $error = "You forgot to enter your Email";
         $eerror = "You forgot to enter your Email";
+         echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
 
@@ -171,14 +279,38 @@ if (isset($_POST['register_btn'])) {
     if (empty($password)) {
         $error = "You forgot to enter your password";
         $perror = "You forgot to enter your password";
+        echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
 
     $confirm_pwd = validate_input_text($_POST['cpassword']);
     if (empty($confirm_pwd)) {
         $error = "You forgot to enter your Confirm Password";
+        echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
     }
     if ($password != $confirm_pwd) {
         $error = "Retype Confirm Password";
+        echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($error) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
         goto a;
     }
 
@@ -197,20 +329,45 @@ if (isset($_POST['register_btn'])) {
             $dusername = $row['USERNAME'];
             if ($demail == $email) {
                 # code...
-                echo '<script>alert("E-mail Already existing")</script>';
+                // echo '<script>alert("E-mail Already existing")</script>';
+                
+                $message = "E-mail provided is already existing";
                 $error = "<div style='color:red'>E-mail provided is already existing</div>";
+            
+                echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($message) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
+              
+
                 goto a;
             }
             if ($dusername == $username) {
                 # code...
-                echo '<script>alert("Username Already existing")</script>';
+                // echo '<script>alert("Username Already existing")</script>';
+
+                $message = "Username provided is already existing";
                 $error = "<div style='color:red'>Username provided is already existing</div>";
+
+                      echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($message) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
+
                 goto a;
             }
         }
 
 
-        $AUTOKEY = "userid"; //userid //employeeid //APPLICANT //FILEID
+        $AUTOKEY = $role; //userid //employeeid //APPLICANT //FILEID
 
         $queryrand = mysqli_query($con, "SELECT * FROM tblautonumbers WHERE AUTOKEY = '$AUTOKEY'") or die(mysqli_error($con));
         $rowrand = mysqli_fetch_array($queryrand);
@@ -223,27 +380,71 @@ if (isset($_POST['register_btn'])) {
             $admin = validate_input_text($_POST['admin']);
             $ROLE = $admin;
         } else {
-            $ROLE = "User"; //Administrator //Employee //User
+            $ROLE = $role; //Administrator //Employee //Applicant
         }
 
-        $query = "INSERT into tblusers (USERID, FNAME, ONAME, EMAIL, USERNAME, PASS, ROLE) values ('$USERID', '$firstName', '$lastName', '$email', '$username', '$hashed_pass', '$ROLE')" or die(mysqli_error($con));
+        $query = "INSERT into tblusers (IDN, FNAME, ONAME, EMAIL, USERNAME, PASS, ROLE) values ('$USERID', '$firstName', '$lastName', '$email', '$username', '$hashed_pass', '$ROLE')" or die(mysqli_error($con));
         $result = mysqli_query($con, $query);
 
         if ($result) {
 
-            // start a new session
-            session_start();
+            // start a new session if not already started
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
 
             // create session variable
             $_SESSION['userID'] = mysqli_insert_id($con);
+            $_SESSION['loggedin_time'] = time();
 
-            echo "<script>alert('Account Created!')</script>";
+            // echo "<script>alert('Account Created!')</script>";
 
-            header('location: ./login.php?chk=successful');
-            // exit();
+            // header('location: ./login.php?chk=successful');
+            if ($ROLE == "Applicant") {
+                              // header("location: ./admin/");
+                              echo "<script>
+                          setTimeout(function() {
+                            window.location.href = './dashboard/';
+                          }, 3000);
+                        </script>";
+             
+                        // exit();
+            } else {
+                                // header("location: ./dashboard/");
+                                echo "<script>
+                        setTimeout(function() {
+                          window.location.href = './dashboard/create-profile.php';
+                        }, 3000);
+                      </script>";
+            }
+            
+            $message = "Account Created Successfully!";
+                      // echo "<script>alert('Incorrect Username or Password!')</script>";
+                      echo "<script>
+            window.onload = function() {
+              const toast = document.getElementById('toast');
+              toast.className = 'show success';
+              toast.textContent = " . json_encode($message) . ";
+              setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+            };
+          </script>";
+
+          // exit();
+
 
         } else {
             $error = "<div style='color:red'>Error while registration...!</div>";
+            $message = "Error while registration...!";
+
+                 echo "<script>
+      window.onload = function() {
+        const toast = document.getElementById('toast');
+        toast.className = 'show error';
+        toast.textContent = " . json_encode($message) . ";
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      };
+    </script>";
+
             echo mysqli_error($con);
         }
     } else {

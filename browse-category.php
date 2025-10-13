@@ -15,67 +15,52 @@ require('./mysqli_connect.php');
 ?>
 <!-- Mirrored from themezhub.net/live-workplex/workplex/job-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Feb 2022 12:07:20 GMT -->
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="author" content="Themezhub" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Workplex - Creative Job Board HTML Template</title>
-
-	<!-- Custom CSS -->
-	<link href="assets/css/styles.css" rel="stylesheet">
-
-</head>
+<?php include 'include/head.php' ?>
 
 <body>
 
-	<!-- ============================================================== -->
-	<!-- Preloader - style you can find in spinners.css -->
-	<!-- ============================================================== -->
-	<div class="preloader"></div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
 
-	<!-- ============================================================== -->
-	<!-- Main wrapper - style you can find in pages.scss -->
-	<!-- ============================================================== -->
-	<div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
+        <!-- Start Navigation -->
+        <?php include 'include/header.php' ?>
+        <!-- End Navigation -->
+        <div class="clearfix"></div>
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
 
-		<!-- ============================================================== -->
-		<!-- Top header  -->
-		<!-- ============================================================== -->
-		<!-- Start Navigation -->
-		<?php include 'include/header.php' ?>
-		<!-- End Navigation -->
-		<div class="clearfix"></div>
-		<!-- ============================================================== -->
-		<!-- Top header  -->
-		<!-- ============================================================== -->
+        <!-- ======================= Top Breadcrubms ======================== -->
+        <div class="bg-title py-5" data-overlay="0">
+            <div class="ht-30"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="colxl-12 col-lg-12 col-md-12">
+                        <h1 class="ft-medium">Browse Categories</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-light">Job</a></li>
+                                <li class="breadcrumb-item active theme-cl" aria-current="page">Browse Categories</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="ht-30"></div>
+        </div>
+        <!-- ======================= Top Breadcrubms ======================== -->
 
-		<!-- ======================= Top Breadcrubms ======================== -->
-		<div class="bg-title py-5" data-overlay="0">
-			<div class="ht-30"></div>
-			<div class="container">
-				<div class="row">
-					<div class="colxl-12 col-lg-12 col-md-12">
-						<h1 class="ft-medium">Browse Categories</h1>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
-								<li class="breadcrumb-item"><a href="#" class="text-light">Job</a></li>
-								<li class="breadcrumb-item active theme-cl" aria-current="page">Browse Categories</li>
-							</ol>
-						</nav>
-					</div>
-				</div>
-			</div>
-			<div class="ht-30"></div>
-		</div>
-		<!-- ======================= Top Breadcrubms ======================== -->
+        <!-- ======================= Browse Category Detail ======================== -->
+        <section class="middle bg-light">
+            <div class="container">
 
-		<!-- ======================= Browse Category Detail ======================== -->
-		<section class="middle bg-light">
-			<div class="container">
-
-				<?php
+                <?php
 
 
 				 $cn =0;
@@ -114,17 +99,17 @@ require('./mysqli_connect.php');
 					
 				?>
 
-						<!-- Single Category -->
-						<div class="row align-items-start mb-5">
-							<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
-								<div class="d-block full-width mt-2">
-									<h3 class="ft-medium mb-0"><?php echo $CATEGORY ?></h3>
-								</div>
-							</div>
-							<div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
-								<div class="row">
+                <!-- Single Category -->
+                <div class="row align-items-start mb-5">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="d-block full-width mt-2">
+                            <h3 class="ft-medium mb-0"><?php echo $CATEGORY ?></h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+                        <div class="row">
 
-					<?php
+                            <?php
 
 						$query = "SELECT * from tbljobsubcategory  ORDER BY ID DESC" or die(mysqli_error($con));
 
@@ -147,19 +132,22 @@ require('./mysqli_connect.php');
 
 					?>
 
-									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-										<div class="d-block full-width px-4 py-4 bg-white rounded mb-3">
-											<div class="d-block full-width mb-1"><img src="assets/img/icons/1.png" class="img-fluid" width="45" alt="" /></div>
-											<h4 class="ft-medium mb-0 fs-md"><?php echo $SUBCATEGORY; ?></h4>
-											<p class="mb-3 p-0 lh-1"><?php echo $count ?> Jobs </p>
-											<a href="job-list-v1.php?jobcategoryid=<?php echo $SUBCATEGORYID; ?>" class="theme-cl ft-medium">Explore Jobs<i class="lni lni-arrow-right-circle ml-1"></i></a>
-										</div>
-									</div>
-									<?php } 
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="d-block full-width px-4 py-4 bg-white rounded mb-3">
+                                    <div class="d-block full-width mb-1"><img src="assets/img/icons/1.png"
+                                            class="img-fluid" width="45" alt="" /></div>
+                                    <h4 class="ft-medium mb-0 fs-md"><?php echo $SUBCATEGORY; ?></h4>
+                                    <p class="mb-3 p-0 lh-1"><?php echo $count ?> Jobs </p>
+                                    <a href="job-list-v1.php?jobcategoryid=<?php echo $SUBCATEGORYID; ?>"
+                                        class="theme-cl ft-medium">Explore Jobs<i
+                                            class="lni lni-arrow-right-circle ml-1"></i></a>
+                                </div>
+                            </div>
+                            <?php } 
 										}
 									 ?>
 
-									<!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
 										<div class="d-block full-width px-4 py-4 bg-white rounded mb-3">
 											<div class="d-block full-width mb-1"><img src="assets/img/icons/2.png" class="img-fluid" width="45" alt="" /></div>
 											<h4 class="ft-medium mb-0 fs-md">Web Designing</h4>
@@ -195,20 +183,20 @@ require('./mysqli_connect.php');
 										</div>
 									</div> -->
 
-								</div>
-							</div>
-						</div>
-						<!-- /row -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
 
-				<?php 
+                <?php 
 					} 
 				// } 
 				if ($cn < 1){
 					echo "<p class='text-center'>No Record..</p>";
 				}?>
 
-				<!-- Single Category -->
-				<!-- <div class="row align-items-start mb-5">
+                <!-- Single Category -->
+                <!-- <div class="row align-items-start mb-5">
 					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
 						<div class="d-block full-width mt-2">
 							<h3 class="ft-medium mb-0">Financial Services & Software</h3>
@@ -265,10 +253,10 @@ require('./mysqli_connect.php');
 						</div>
 					</div>
 				</div> -->
-				<!-- /row -->
+                <!-- /row -->
 
-				<!-- Single Category -->
-				<!-- <div class="row align-items-start mb-5">
+                <!-- Single Category -->
+                <!-- <div class="row align-items-start mb-5">
 					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
 						<div class="d-block full-width mt-2">
 							<h3 class="ft-medium mb-0">Transmission & Distribution</h3>
@@ -325,10 +313,10 @@ require('./mysqli_connect.php');
 						</div>
 					</div>
 				</div> -->
-				<!-- /row -->
+                <!-- /row -->
 
-				<!-- Single Category -->
-				<!-- <div class="row align-items-start">
+                <!-- Single Category -->
+                <!-- <div class="row align-items-start">
 					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
 						<div class="d-block full-width mt-2">
 							<h3 class="ft-medium mb-0">Switchgear/ Electrical Engineering</h3>
@@ -385,37 +373,37 @@ require('./mysqli_connect.php');
 						</div>
 					</div>
 				</div> -->
-				<!-- /row -->
+                <!-- /row -->
 
-			</div>
-		</section>
-		<!-- ======================= Browse Category End ======================== -->
+            </div>
+        </section>
+        <!-- ======================= Browse Category End ======================== -->
 
-		<?php include 'include/footer.php' ?>
+        <?php include 'include/footer.php' ?>
 
-		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+        <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
 
 
-	</div>
-	<!-- ============================================================== -->
-	<!-- End Wrapper -->
-	<!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
 
-	<!-- ============================================================== -->
-	<!-- All Jquery -->
-	<!-- ============================================================== -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.js"></script>
-	<script src="assets/js/slider-bg.js"></script>
-	<script src="assets/js/smoothproducts.js"></script>
-	<script src="assets/js/snackbar.min.js"></script>
-	<script src="assets/js/jQuery.style.switcher.js"></script>
-	<script src="assets/js/custom.js"></script>
-	<!-- ============================================================== -->
-	<!-- This page plugins -->
-	<!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/slider-bg.js"></script>
+    <script src="assets/js/smoothproducts.js"></script>
+    <script src="assets/js/snackbar.min.js"></script>
+    <script src="assets/js/jQuery.style.switcher.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
 
 </body>
 

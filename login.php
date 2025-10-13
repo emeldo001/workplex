@@ -20,24 +20,9 @@ require('./mysqli_connect.php');
 
 <!-- Mirrored from themezhub.net/live-workplex/workplex/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Feb 2022 12:08:07 GMT -->
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="author" content="Themezhub" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Workplex - Creative Job Board HTML Template</title>
-
-    <!-- Custom CSS -->
-    <link href="assets/css/styles.css" rel="stylesheet">
-
-</head>
+<?php include 'include/head.php' ?>
 
 <body>
-
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader"></div>
 
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
@@ -142,6 +127,23 @@ require('./mysqli_connect.php');
                         </div>
                         <form class="border p-3 rounded" method="post">
 
+                            <!-- Choose between registering as job applicant and employer -->
+                            <div class="form-group">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="flex-1">
+                                        <input id="applicant" class="" name="role" type="radio" value="Applicant"
+                                            checked>
+                                        <label for="applicant" class="checkbox-custom-label">Register as Job
+                                            Applicant</label>
+                                    </div>
+                                    <div class="flex-1">
+                                        <input id="employer" class="" name="role" type="radio" value="Employer">
+                                        <label for="employer" class="checkbox-custom-label">Register as Employer</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label>First Name *</label>
@@ -213,6 +215,8 @@ require('./mysqli_connect.php');
                                     Account</button>
                             </div>
                         </form>
+
+
                     </div>
 
                 </div>

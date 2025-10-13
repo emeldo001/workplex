@@ -27,12 +27,12 @@ if (!empty($_GET['type'])) {
 		// mysqli_query($con, $delete_sql); 
 ?>
 
-		<script>
-			// alert("Bookmarked Job Removed");
-			// setTimeout(function() {
-			// 	window.location.href = 'job-search.php?companyid=<?php echo $jobid ?>';
-			// }, 3000);
-		</script>
+<script>
+// alert("Bookmarked Job Removed");
+// setTimeout(function() {
+// 	window.location.href = 'job-search.php?companyid=<?php echo $jobid ?>';
+// }, 3000);
+</script>
 <?php
 	}
 }
@@ -40,43 +40,29 @@ if (!empty($_GET['type'])) {
 ?>
 
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="author" content="Themezhub" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Workplex - Creative Job Board HTML Template</title>
-
-	<!-- Custom CSS -->
-	<link href="assets/css/styles.css" rel="stylesheet">
-
-</head>
+<?php include 'include/head.php' ?>
 
 <body>
 
-	<!-- ============================================================== -->
-	<!-- Preloader - style you can find in spinners.css -->
-	<!-- ============================================================== -->
-	<div class="preloader"></div>
 
-	<!-- ============================================================== -->
-	<!-- Main wrapper - style you can find in pages.scss -->
-	<!-- ============================================================== -->
-	<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
 
-		<!-- ============================================================== -->
-		<!-- Top header  -->
-		<!-- ============================================================== -->
-		<!-- Start Navigation -->
-		<?php include 'include/header.php' ?>
-		<!-- End Navigation -->
-		<div class="clearfix"></div>
-		<!-- ============================================================== -->
-		<!-- Top header  -->
-		<!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
+        <!-- Start Navigation -->
+        <?php include 'include/header.php' ?>
+        <!-- End Navigation -->
+        <div class="clearfix"></div>
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
 
-		<!-- ======================= Searchbar Banner ======================== -->
-		<!-- <div class="py-3 theme-bg searchingBar">
+        <!-- ======================= Searchbar Banner ======================== -->
+        <!-- <div class="py-3 theme-bg searchingBar">
 			<div class="container">
 				<div class="row justify-content-between align-items-center">
 					<div class="col-xl-7 col-lg-9 col-md-9 col-sm-12 col-12">
@@ -112,8 +98,8 @@ if (!empty($_GET['type'])) {
 				</div>
 			</div>
 		</div> -->
-		<!-- ======================= Searchbar Banner ======================== -->
-		<?php
+        <!-- ======================= Searchbar Banner ======================== -->
+        <?php
 
 		function timeago($date)
 		{
@@ -138,63 +124,64 @@ if (!empty($_GET['type'])) {
 
 		?>
 
-		<!-- ======================= All Product List ======================== -->
-		<section class="bg-light middle">
-			<div class="container">
+        <!-- ======================= All Product List ======================== -->
+        <section class="bg-light middle">
+            <div class="container">
 
-				<div class="row">
-					<div class="col-xl-12 col-lg-12 col-md-12 col-12">
-						<div class="row align-items-center justify-content-between mx-0 bg-white rounded py-2 mb-4">
-							<div class="col-xl-3 col-lg-4 col-md-5 col-sm-12">
-								<!-- <h6 class="mb-0 ft-medium fs-sm">302 New Jobs Found</h6> -->
-							</div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <div class="row align-items-center justify-content-between mx-0 bg-white rounded py-2 mb-4">
+                            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-12">
+                                <!-- <h6 class="mb-0 ft-medium fs-sm">302 New Jobs Found</h6> -->
+                            </div>
 
-							<div class="col-xl-9 col-lg-8 col-md-7 col-sm-12">
-								<div class="filter_wraps elspo_wrap d-flex align-items-center justify-content-end">
-									<div class="single_fitres mr-2 br-right">
-										<form method="post">
-											<?php
+                            <div class="col-xl-9 col-lg-8 col-md-7 col-sm-12">
+                                <div class="filter_wraps elspo_wrap d-flex align-items-center justify-content-end">
+                                    <div class="single_fitres mr-2 br-right">
+                                        <form method="post">
+                                            <?php
 											$sort = '';
 											if (isset($_POST['sort'])) {
 												$sort = $_POST['sort'];
 											}
 
 											?>
-											<select class="custom-select simple" onchange="submit()" name="sort">
-												<?php
+                                            <select class="custom-select simple" onchange="submit()" name="sort">
+                                                <?php
 												if ($sort == "DESC") { ?>
-													<option value="">Default Sorting</option>
-													<option value="DESC" selected="">Sort By Recent</option>
-													<option value="ASC">Sort By Older</option>
-												<?php } elseif ($sort == "ASC") { ?>
-													<option value="">Default Sorting</option>
-													<option value="DESC">Sort By Recent</option>
-													<option value="ASC" selected="">Sort By Older</option>
-												<?php } else { ?>
-													<option value="" selected="">Default Sorting</option>
-													<option value="DESC">Sort By Recent</option>
-													<option value="ASC">Sort By Older</option>
-												<?php } ?>
+                                                <option value="">Default Sorting</option>
+                                                <option value="DESC" selected="">Sort By Recent</option>
+                                                <option value="ASC">Sort By Older</option>
+                                                <?php } elseif ($sort == "ASC") { ?>
+                                                <option value="">Default Sorting</option>
+                                                <option value="DESC">Sort By Recent</option>
+                                                <option value="ASC" selected="">Sort By Older</option>
+                                                <?php } else { ?>
+                                                <option value="" selected="">Default Sorting</option>
+                                                <option value="DESC">Sort By Recent</option>
+                                                <option value="ASC">Sort By Older</option>
+                                                <?php } ?>
 
 
-											</select>
+                                            </select>
 
-										</form>
-									</div>
-									<div class="single_fitres">
-										<a href="job-search-v1.php" class="simple-button active theme-cl mr-1"><i class="ti-layout-grid2"></i></a>
-										<a href="job-list-v1.php" class="simple-button"><i class="ti-view-list"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                        </form>
+                                    </div>
+                                    <div class="single_fitres">
+                                        <a href="job-search-v1.php" class="simple-button active theme-cl mr-1"><i
+                                                class="ti-layout-grid2"></i></a>
+                                        <a href="job-list-v1.php" class="simple-button"><i class="ti-view-list"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<!-- row -->
-				<div class="row align-items-center">
+                <!-- row -->
+                <div class="row align-items-center">
 
-					<?php
+                    <?php
 
 
 					if (!empty($_GET['jobcategoryid'])) {
@@ -248,14 +235,14 @@ if (!empty($_GET['type'])) {
 
 					?>
 
-						<!-- Single -->
-						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-							<div class="job_grid border rounded ">
-								<div class="position-absolute ab-left">
-									<form method="post">
-										<input type="hidden" name="jobID" value="<?php echo $JOBID ?>">
-										<input type="hidden" name="userID" value="<?php echo $session_id ?>">
-										<?php
+                    <!-- Single -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="job_grid border rounded ">
+                            <div class="position-absolute ab-left">
+                                <form method="post">
+                                    <input type="hidden" name="jobID" value="<?php echo $JOBID ?>">
+                                    <input type="hidden" name="userID" value="<?php echo $session_id ?>">
+                                    <?php
 										$query_apply = "SELECT * from tblbookmarkjob where APPLICANTID = '$session_id' and JOBID = '$JOBID' ORDER BY ID DESC" or die(mysqli_error($con));
 										$run_apply = mysqli_query($con, $query_apply);
 										$row_apply = mysqli_fetch_array($run_apply);
@@ -263,46 +250,62 @@ if (!empty($_GET['type'])) {
 
 										if ($cn_save > 0) { ?>
 
-											<a href="?type=delete&bookmarkedid=<?php echo $row_apply['ID'] ?>" class="p-3 border circle d-flex align-items-center justify-content-center bg-warning text-white"> <i class="lni lni-heart-filled position-absolute"></i></a>
+                                    <a href="?type=delete&bookmarkedid=<?php echo $row_apply['ID'] ?>"
+                                        class="p-3 border circle d-flex align-items-center justify-content-center bg-warning text-white">
+                                        <i class="lni lni-heart-filled position-absolute"></i></a>
 
-											<!-- <a href="?type=delete&bookmarkedid=<?php echo $row_apply['ID'] ?>&jobid=<?php echo $JOBID ?>" class="btn btn-md rounded gray fs-sm ft-medium mr-2 text-warning">Remove Saved Job</a> -->
+                                    <!-- <a href="?type=delete&bookmarkedid=<?php echo $row_apply['ID'] ?>&jobid=<?php echo $JOBID ?>" class="btn btn-md rounded gray fs-sm ft-medium mr-2 text-warning">Remove Saved Job</a> -->
 
-										<?php } else { ?>
-											<!-- <button type="submit" name="save_job" class="btn btn-md rounded gray fs-sm ft-medium mr-2">Save This Job</button> -->
+                                    <?php } else { ?>
+                                    <!-- <button type="submit" name="save_job" class="btn btn-md rounded gray fs-sm ft-medium mr-2">Save This Job</button> -->
 
-											<button type="submit" name="save_job" class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray"> <i class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button>
+                                    <button type="submit" name="save_job"
+                                        class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray">
+                                        <i
+                                            class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button>
 
-										<?php } ?>
-									</form>
-								</div>
-								<div class="position-absolute ab-right"><span class="medium theme-cl theme-bg-light px-2 py-1 rounded text-info"><?php echo $row['JOBTYPE']; ?></span>
-									<span class="medium theme-cl theme-bg-light px-2 py-1 rounded"><?php echo $JOBSTATUS ?></span>
-								</div>
-								<div class="job_grid_thumb mb-3 pt-5 px-3">
-									<a href="job-detail.php?jobid=<?php echo $JOBID ?>" class="d-block text-center m-auto"><img src="./<?php echo $COMPANYLOGO ?>" class="img-fluid" width="70" alt="" /></a>
-								</div>
-								<div class="job_grid_caption text-center pb-5 px-3">
-									<h6 class="mb-0 lh-1 ft-medium medium"><a href="employer-detail.php?companyid=<?php echo $COMPANYID ?>" class="text-muted medium"><?php echo $COMPANYNAME; ?></a></h6>
-									<h4 class="mb-0 ft-medium medium"><a href="job-detail.php?jobid=<?php echo $JOBID ?>" class="text-dark fs-md"><?php echo $row['JOBTITLE']; ?></a></h4>
-									<div class="jbl_location"><i class="lni lni-map-marker mr-1"></i><span><?php echo $COMPANYCITY ?>, <?php echo $COMPANYCOUNTRY ?></span></div>
-								</div>
-								<div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
-									<div class="df-1 text-muted">
-										<?php if ($SALARY > 0) { ?><i class="lni lni-wallet mr-1"></i>: N<?php echo number_format($SALARY, 2) ?> <?php } ?><br>
-										<i class="lni lni-timer mr-1"></i><b>Posted:</b> <?php echo timeago($DATEPOSTED); ?><br>
-										<i class="lni lni-calendar mr-1"></i><b>Deadline:</b> <?php echo date($DEADLINE) ?>
-									</div>
-								</div>
-							</div>
-						</div>
+                                    <?php } ?>
+                                </form>
+                            </div>
+                            <div class="position-absolute ab-right"><span
+                                    class="medium theme-cl theme-bg-light px-2 py-1 rounded text-info"><?php echo $row['JOBTYPE']; ?></span>
+                                <span
+                                    class="medium theme-cl theme-bg-light px-2 py-1 rounded"><?php echo $JOBSTATUS ?></span>
+                            </div>
+                            <div class="job_grid_thumb mb-3 pt-5 px-3">
+                                <a href="job-detail.php?jobid=<?php echo $JOBID ?>"
+                                    class="d-block text-center m-auto"><img src="./<?php echo $COMPANYLOGO ?>"
+                                        class="img-fluid" width="70" alt="" /></a>
+                            </div>
+                            <div class="job_grid_caption text-center pb-5 px-3">
+                                <h6 class="mb-0 lh-1 ft-medium medium"><a
+                                        href="employer-detail.php?companyid=<?php echo $COMPANYID ?>"
+                                        class="text-muted medium"><?php echo $COMPANYNAME; ?></a></h6>
+                                <h4 class="mb-0 ft-medium medium"><a href="job-detail.php?jobid=<?php echo $JOBID ?>"
+                                        class="text-dark fs-md"><?php echo $row['JOBTITLE']; ?></a></h4>
+                                <div class="jbl_location"><i
+                                        class="lni lni-map-marker mr-1"></i><span><?php echo $COMPANYCITY ?>,
+                                        <?php echo $COMPANYCOUNTRY ?></span></div>
+                            </div>
+                            <div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
+                                <div class="df-1 text-muted">
+                                    <?php if ($SALARY > 0) { ?><i class="lni lni-wallet mr-1"></i>:
+                                    N<?php echo number_format($SALARY, 2) ?> <?php } ?><br>
+                                    <i class="lni lni-timer mr-1"></i><b>Posted:</b>
+                                    <?php echo timeago($DATEPOSTED); ?><br>
+                                    <i class="lni lni-calendar mr-1"></i><b>Deadline:</b> <?php echo date($DEADLINE) ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-					<?php } ?>
+                    <?php } ?>
 
 
-				</div>
-				<!-- row -->
+                </div>
+                <!-- row -->
 
-				<!-- <div class="row">
+                <!-- <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<ul class="pagination">
 							<li class="page-item">
@@ -326,135 +329,142 @@ if (!empty($_GET['type'])) {
 					</div> 
 				</div>-->
 
-			</div>
-		</section>
-		<!-- ======================= All Product List ======================== -->
+            </div>
+        </section>
+        <!-- ======================= All Product List ======================== -->
 
-		<?php include 'include/footer.php' ?>
-
-
-		<!-- Job Alert -->
-		<div class="w3-ch-sideBar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="Search">
-			<div class="rightMenu-scroll">
-				<div class="d-flex align-items-center justify-content-between slide-head py-3 px-3">
-					<h4 class="cart_heading fs-md ft-medium mb-0">Make job Alert</h4>
-					<button onclick="closeSearch()" class="close_slide"><i class="ti-close"></i></button>
-				</div>
-
-				<div class="cart_action px-3 py-4">
-					<form class="form m-0 p-0">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Job Title, Keyword or Company" />
-						</div>
-
-						<div class="form-group">
-							<select class="custom-select">
-								<option value="1">Choose Categories</option>
-								<option value="2">Information Technology</option>
-								<option value="3">Cloud Computing</option>
-								<option value="4">Engineering Services</option>
-								<option value="5">Healthcare/Pharma</option>
-								<option value="6">Telecom/ Internet</option>
-								<option value="7">Finance/Insurance</option>
-							</select>
-						</div>
-
-						<div class="form-group mb-0">
-							<button type="button" class="btn d-block full-width theme-bg text-light">Save & Update</button>
-						</div>
-					</form>
-				</div>
-
-				<div class="d-flex align-items-center justify-content-center br-top br-bottom py-2 px-3">
-					<h4 class="cart_heading fs-md mb-0">Featured Companies</h4>
-				</div>
-
-				<div class="cart_action px-3 py-3">
-					<div class="row justify-content-center">
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="mb-2 text-left">
-								<a href="job-search-v1.html" class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
-									<div class="text-center"><img src="assets/img/c-9.png" class="img-fluid" width="55" alt=""></div>
-									<div class="cats-box-caption px-2">
-										<h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
-										<span class="text-muted">302 Jobs</span>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="mb-2 text-left">
-								<a href="job-search-v1.html" class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
-									<div class="text-center"><img src="assets/img/c-4.png" class="img-fluid" width="55" alt=""></div>
-									<div class="cats-box-caption px-2">
-										<h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
-										<span class="text-muted">302 Jobs</span>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="text-left">
-								<a href="job-search-v1.html" class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
-									<div class="text-center"><img src="assets/img/c-2.png" class="img-fluid" width="55" alt=""></div>
-									<div class="cats-box-caption px-2">
-										<h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
-										<span class="text-muted">302 Jobs</span>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+        <?php include 'include/footer.php' ?>
 
 
-	</div>
-	<!-- ============================================================== -->
-	<!-- End Wrapper -->
-	<!-- ============================================================== -->
+        <!-- Job Alert -->
+        <div class="w3-ch-sideBar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="Search">
+            <div class="rightMenu-scroll">
+                <div class="d-flex align-items-center justify-content-between slide-head py-3 px-3">
+                    <h4 class="cart_heading fs-md ft-medium mb-0">Make job Alert</h4>
+                    <button onclick="closeSearch()" class="close_slide"><i class="ti-close"></i></button>
+                </div>
 
-	<!-- ============================================================== -->
-	<!-- All Jquery -->
-	<!-- ============================================================== -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.js"></script>
-	<script src="assets/js/slider-bg.js"></script>
-	<script src="assets/js/smoothproducts.js"></script>
-	<script src="assets/js/snackbar.min.js"></script>
-	<script src="assets/js/jQuery.style.switcher.js"></script>
-	<script src="assets/js/custom.js"></script>
-	<!-- ============================================================== -->
-	<!-- This page plugins -->
-	<!-- ============================================================== -->
+                <div class="cart_action px-3 py-4">
+                    <form class="form m-0 p-0">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Job Title, Keyword or Company" />
+                        </div>
 
-	<script>
-		$(window).scroll(function() {
-			var scroll = $(window).scrollTop();
+                        <div class="form-group">
+                            <select class="custom-select">
+                                <option value="1">Choose Categories</option>
+                                <option value="2">Information Technology</option>
+                                <option value="3">Cloud Computing</option>
+                                <option value="4">Engineering Services</option>
+                                <option value="5">Healthcare/Pharma</option>
+                                <option value="6">Telecom/ Internet</option>
+                                <option value="7">Finance/Insurance</option>
+                            </select>
+                        </div>
 
-			if (scroll >= 200) {
-				$(".searchingBar").addClass("fixedSearching");
-			} else {
-				$(".searchingBar").removeClass("fixedSearching");
-			}
-		});
-	</script>
+                        <div class="form-group mb-0">
+                            <button type="button" class="btn d-block full-width theme-bg text-light">Save &
+                                Update</button>
+                        </div>
+                    </form>
+                </div>
 
-	<script>
-		function openSearch() {
-			document.getElementById("Search").style.display = "block";
-		}
+                <div class="d-flex align-items-center justify-content-center br-top br-bottom py-2 px-3">
+                    <h4 class="cart_heading fs-md mb-0">Featured Companies</h4>
+                </div>
 
-		function closeSearch() {
-			document.getElementById("Search").style.display = "none";
-		}
-	</script>
+                <div class="cart_action px-3 py-3">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="mb-2 text-left">
+                                <a href="job-search-v1.html"
+                                    class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
+                                    <div class="text-center"><img src="assets/img/c-9.png" class="img-fluid" width="55"
+                                            alt=""></div>
+                                    <div class="cats-box-caption px-2">
+                                        <h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
+                                        <span class="text-muted">302 Jobs</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="mb-2 text-left">
+                                <a href="job-search-v1.html"
+                                    class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
+                                    <div class="text-center"><img src="assets/img/c-4.png" class="img-fluid" width="55"
+                                            alt=""></div>
+                                    <div class="cats-box-caption px-2">
+                                        <h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
+                                        <span class="text-muted">302 Jobs</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="text-left">
+                                <a href="job-search-v1.html"
+                                    class="cats-box rounded bg-light d-flex align-items-center px-2 py-3">
+                                    <div class="text-center"><img src="assets/img/c-2.png" class="img-fluid" width="55"
+                                            alt=""></div>
+                                    <div class="cats-box-caption px-2">
+                                        <h4 class="fs-sm mb-0 ft-medium">Web Designing</h4>
+                                        <span class="text-muted">302 Jobs</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/slider-bg.js"></script>
+    <script src="assets/js/smoothproducts.js"></script>
+    <script src="assets/js/snackbar.min.js"></script>
+    <script src="assets/js/jQuery.style.switcher.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+
+    <script>
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 200) {
+            $(".searchingBar").addClass("fixedSearching");
+        } else {
+            $(".searchingBar").removeClass("fixedSearching");
+        }
+    });
+    </script>
+
+    <script>
+    function openSearch() {
+        document.getElementById("Search").style.display = "block";
+    }
+
+    function closeSearch() {
+        document.getElementById("Search").style.display = "none";
+    }
+    </script>
 
 </body>
 

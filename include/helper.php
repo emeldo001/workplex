@@ -654,8 +654,9 @@ function validate_input_text($textValue)
 {
     if (!empty($textValue)) {
         $trim_text = trim($textValue);
-        // remove illegal character
-        $sanitize_str = filter_var($trim_text, FILTER_SANITIZE_STRING);
+        // remove HTML tags and encode special characters to prevent XSS
+        $no_tags = strip_tags($trim_text);
+        $sanitize_str = htmlspecialchars($no_tags, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         return $sanitize_str;
     }
     return '';

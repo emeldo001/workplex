@@ -411,9 +411,10 @@ if (isset($_POST['register_btn'])) {
                         // exit();
             } else {
                                 // header("location: ./dashboard/");
+                                //window.location.href = './dashboard/create-profile.php';
                                 echo "<script>
                         setTimeout(function() {
-                          window.location.href = './dashboard/create-profile.php';
+                          window.location.href = './dashboard/';
                         }, 3000);
                       </script>";
             }
